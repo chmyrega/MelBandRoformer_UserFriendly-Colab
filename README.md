@@ -1,6 +1,6 @@
 # 🎵 Mel-Band-Roformer - Расширенная версия с русским интерфейсом
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/chmyrega/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
+[![Open In Colab]()](https://colab.research.google.com/github/chmyrega/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/GaboxR67/MelBandRoformers)
 
 [English version](#english-version) (planned, not yet available)
@@ -84,7 +84,7 @@
 
 # 🎵 Mel-Band-Roformer - Extended Version with Russian Interface
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/mel_band_roformer_ru.ipynb)
+[![Open In Colab]()](https://colab.research.google.com/github/chmyrega/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/GaboxR67/MelBandRoformers)
 
 **Note**: English version of the interface is planned but not yet implemented. The current version features a fully Russian interface.
