@@ -1,6 +1,6 @@
 # 🎵 Mel-Band-Roformer - Расширенная версия с русским интерфейсом
 
-[![Open In Colab]()](https://colab.research.google.com/github/chmyrega/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
+[![Open In Colab](https://camo.githubusercontent.com/eff96fda6b2e0fff8cdf2978f89d61aa434bb98c00453ae23dd0aab8d1451633/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667)](https://colab.research.google.com/github/chmyrega/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/GaboxR67/MelBandRoformers)
 
 [English version](#english-version) (planned, not yet available)
