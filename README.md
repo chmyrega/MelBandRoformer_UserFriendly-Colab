@@ -1,158 +1,120 @@
-# 🎵 Mel-Band-Roformer - Расширенная версия с русским интерфейсом
+# Mel-Band Roformer — удобный Colab для разделения аудио
 
-[![Open In Colab](https://camo.githubusercontent.com/eff96fda6b2e0fff8cdf2978f89d61aa434bb98c00453ae23dd0aab8d1451633/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667)](https://colab.research.google.com/github/Y4TSK0V/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/GaboxR67/MelBandRoformers)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Y4TSK0V/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
 
-[English version](#english-version) (planned, not yet available)
+Colab-ноутбук для разделения музыки на вокал и инструментал с помощью моделей [Mel-Band Roformer](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model). Русскоязычный интерфейс, 50+ моделей из коллекции [GaboxR67](https://huggingface.co/GaboxR67/MelBandRoformers), загрузка с компьютера или Google Drive.
 
-## 📖 О проекте
+## Что умеет
 
-Это расширенная версия [Mel-Band-Roformer-Vocal-Model](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model) с русскоязычным интерфейсом и дополнительными моделями для профессионального разделения аудио на компоненты.
+- Извлечение вокала из песни (акапелла)
+- Создание минусовки (инструментал без голоса)
+- Караоке-версии (убирает ведущий вокал, оставляет бэки)
+- Шумоподавление и удаление реверберации
 
-### 🔗 Источники
-- **Оригинальный репозиторий**: [KimberleyJensen/Mel-Band-Roformer-Vocal-Model](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model)
-- **Базовый Colab notebook**: [Original Colab](https://colab.research.google.com/drive/1tyP3ZgcD443d4Q3ly7LcS3toJroLO5o1)
-- **Дополнительные модели**: [GaboxR67/MelBandRoformers](https://huggingface.co/GaboxR67/MelBandRoformers/tree/main/melbandroformers)
+## Как пользоваться
 
-## ✨ Особенности
+1. Откройте ноутбук по кнопке выше
+2. Включите GPU: *Среда выполнения → Сменить среду → T4 GPU*
+3. Выполняйте ячейки по порядку: выбор модели → установка → загрузка файлов → обработка → прослушивание и скачивание
 
-- 🇷🇺 **Полностью русифицированный интерфейс**
-- 🎯 **7 специализированных моделей** для различных задач
-- 📁 **Поддержка популярных форматов**: MP3, WAV, FLAC, M4A, OGG
-- 🎨 **Интерактивный выбор модели** с описанием каждой
-- ⚡ **Упрощенная установка** - всего несколько кликов
-- 📦 **Автоматическая упаковка результатов** в ZIP-архив
+На выходе получите два WAV-файла: `*_vocals.wav` и `*_instrumental.wav`.
 
-## 🤖 Доступные модели
+## Модели
 
-### Вокальные модели
-- **🎤 Стандартная модель** - оригинальная модель для извлечения вокала
-- **🎙️ Вокальная (улучшенная)** - специализирована на извлечении вокала с сохранением деталей
+Ноутбук автоматически генерирует подходящий конфиг под выбранную модель. Модели делятся на три архитектуры:
 
-### Инструментальные модели  
-- **🎸 Инструментальная (последняя версия V7z)** - создание качественных минусовок
-- **🎹 Инструментальная V8** - стабильная версия с хорошим балансом
+| Архитектура | dim | depth | Размер | Примеры |
+|-------------|-----|-------|--------|---------|
+| Стандартная | 384 | 6 | ~913 MB | Inst GaboxF v9, Vocal Fv6, Karaoke GaBox V1 |
+| Компактная | 256 | 12 | ~490 MB | Vocal Fv7, Inst Flowers V10 |
+| Малая | 384 | 6 (mlp=1) | ~203 MB | Small Karaoke |
 
-### Специальные модели
-- **🎤 Караоке модель** - оптимизирована для создания караоке-треков
-- **🧪 Экспериментальная V10** - новейшие разработки
-- **🎵 Шумоподавление** - удаление шумов и артефактов из старых записей
+**Если не знаете, что выбрать:**
+- Для минусовки — *Inst GaboxF v9*
+- Для вокала — *Vocal Fv6* (стабильная) или *Vocal Fv7* (компактная, новее)
+- Для караоке — *Karaoke GaBox V1*
 
-## 🚀 Быстрый старт
+Полный список — в интерфейсе ноутбука, там же описания.
 
-1. Откройте notebook в Google Colab
-2. Убедитесь, что включен GPU (Среда выполнения → Сменить среду выполнения → GPU)
-3. Запустите ячейки по порядку:
-   - **Шаг 1**: Выберите модель
-   - **Шаг 2**: Установка (автоматическая)
-   - **Шаг 3**: Загрузите аудиофайлы
-   - **Шаг 4**: Обработка
-   - **Шаг 5**: Скачайте результаты
+## Форматы
 
-## 📊 Результаты
+Загружать можно MP3, WAV, FLAC, M4A, OGG, WMA, AIFF, OPUS. Всё автоматически конвертируется в WAV перед обработкой. Результаты — WAV 44100 Hz стерео.
 
-После обработки вы получите:
-- `[имя_файла]_vocals.wav` - извлеченный вокал
-- `[имя_файла]_instrumental.wav` - музыка без вокала
+## Отличия от оригинала
 
-## 💡 Советы по использованию
+Оригинальный ноутбук [KimberleyJensen](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model) поддерживает одну модель и только WAV-файлы. Здесь:
 
-- Для современной музыки используйте стандартные модели
-- Для старых записей попробуйте модель с шумоподавлением  
-- Экспериментальные модели могут дать неожиданные результаты
-- Качество зависит от исходного файла, не рекомендуется закидывать сэмплы плохого качества
+- Каталог из 50+ моделей с разбивкой по категориям
+- Программная генерация YAML-конфигов (не скачивание чужих файлов с возможными ошибками)
+- Загрузка файлов с компьютера или Google Drive
+- Конвертация любых аудиоформатов через ffmpeg
+- MP3-превью результатов прямо в браузере (не грузит гигабайтные WAV в DOM)
+- ZIP-архив по кнопке, а не автоматически
+- Проверки: GPU, размер модели, совпадение архитектуры с профилем, целостность скачанного файла
 
-## 🛠️ Технические детали
+## Известные ограничения
 
-- Основан на архитектуре Mel-Band Roformer
-- Использует PyTorch для обработки
-- Поддерживает CUDA для ускорения на GPU
-- Автоматическая конвертация различных аудиоформатов
+- Модели с профилем `small` (203 MB) могут не работать — параметр `mlp_expansion_factor` поддерживается не всеми версиями inference-кода
+- Для инструментальных моделей выходные файлы `_vocals` и `_instrumental` иногда перепутаны — просто послушайте оба
+- Бесплатный Colab даёт ~12 GB RAM и T4 GPU; на длинных треках (>10 мин) может не хватить памяти — попробуйте компактную модель (490 MB)
 
-## 📝 Лицензия
+## Источники
 
-Этот проект следует лицензии оригинального репозитория [Mel-Band-Roformer-Vocal-Model](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model).
+- Код inference: [KimberleyJensen/Mel-Band-Roformer-Vocal-Model](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model)
+- Модели: [GaboxR67/MelBandRoformers](https://huggingface.co/GaboxR67/MelBandRoformers)
+- Оригинальный Colab: [ссылка](https://colab.research.google.com/drive/1tyP3ZgcD443d4Q3ly7LcS3toJroLO5o1)
 
-## 🤝 Благодарности
+## Лицензия
 
-- [KimberleyJensen](https://github.com/KimberleyJensen) за оригинальную реализацию
-- [GaboxR67](https://huggingface.co/GaboxR67) за дополнительные модели
+Следует лицензии [оригинального репозитория](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model).
 
 ---
 
-<a name="english-version"></a>
+# Mel-Band Roformer — User-Friendly Colab
 
-# 🎵 Mel-Band-Roformer - Extended Version with Russian Interface
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Y4TSK0V/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
 
-[![Open In Colab](https://camo.githubusercontent.com/eff96fda6b2e0fff8cdf2978f89d61aa434bb98c00453ae23dd0aab8d1451633/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667)](https://colab.research.google.com/github/Y4TSK0V/MelBandRoformer_UserFriendly-Colab/blob/main/MelBandRoformer_UserFriendly_Colab.ipynb)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/GaboxR67/MelBandRoformers)
+A Colab notebook for separating music into vocals and instrumentals using [Mel-Band Roformer](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model) models. Russian-language interface, 50+ models from [GaboxR67](https://huggingface.co/GaboxR67/MelBandRoformers), upload from local machine or Google Drive.
 
-**Note**: English version of the interface is planned but not yet implemented. The current version features a fully Russian interface.
+## What it does
 
-## 📖 About
+- Vocal extraction (acapella)
+- Instrumental creation (music without voice)
+- Karaoke versions (removes lead vocals, keeps backing)
+- Denoising and dereverb
 
-This is an extended version of [Mel-Band-Roformer-Vocal-Model](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model) with Russian interface and additional models for professional audio source separation.
+## How to use
 
-### 🔗 Sources
-- **Original repository**: [KimberleyJensen/Mel-Band-Roformer-Vocal-Model](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model)
-- **Base Colab notebook**: [Original Colab](https://colab.research.google.com/drive/1tyP3ZgcD443d4Q3ly7LcS3toJroLO5o1)
-- **Additional models**: [GaboxR67/MelBandRoformers](https://huggingface.co/GaboxR67/MelBandRoformers/tree/main/melbandroformers)
+1. Open the notebook via the button above
+2. Enable GPU: *Runtime → Change runtime type → T4 GPU*
+3. Run cells in order: model selection → setup → upload files → process → listen & download
 
-## ✨ Features
+Output: two WAV files per track — `*_vocals.wav` and `*_instrumental.wav`.
 
-- 🇷🇺 **Fully Russian interface** (English version planned)
-- 🎯 **7 specialized models** for different tasks
-- 📁 **Support for popular formats**: MP3, WAV, FLAC, M4A, OGG
-- 🎨 **Interactive model selection** with descriptions
-- ⚡ **Simplified installation** - just a few clicks
-- 📦 **Automatic result packaging** in ZIP archive
+## Models
 
-## 🤖 Available Models
+The notebook generates compatible YAML configs automatically. Three architecture tiers:
 
-### Vocal Models
-- **🎤 Standard Model** - original model for vocal extraction
-- **🎙️ Vocal (Enhanced)** - specialized in vocal extraction with detail preservation
+| Architecture | dim | depth | Size | Examples |
+|-------------|-----|-------|------|----------|
+| Standard | 384 | 6 | ~913 MB | Inst GaboxF v9, Vocal Fv6, Karaoke GaBox V1 |
+| Compact | 256 | 12 | ~490 MB | Vocal Fv7, Inst Flowers V10 |
+| Small | 384 | 6 (mlp=1) | ~203 MB | Small Karaoke |
 
-### Instrumental Models
-- **🎸 Instrumental (Latest V7z)** - quality instrumental creation
-- **🎹 Instrumental V8** - stable version with good balance
+**Quick picks:**
+- Instrumentals — *Inst GaboxF v9*
+- Vocals — *Vocal Fv6* (stable) or *Vocal Fv7* (compact, newer)
+- Karaoke — *Karaoke GaBox V1*
 
-### Special Models
-- **🎤 Karaoke Model** - optimized for karaoke track creation
-- **🧪 Experimental V10** - latest developments
-- **🎵 Denoise** - noise and artifact removal from old recordings
+## Differences from original
 
-## 🚀 Quick Start
+The original notebook supports one model and WAV-only input. This version adds 50+ models with category browsing, programmatic config generation, multi-format support via ffmpeg, MP3 previews in browser, optional ZIP download, and validation checks throughout.
 
-1. Open notebook in Google Colab
-2. Ensure GPU is enabled (Runtime → Change runtime type → GPU)
-3. Run cells in order:
-   - **Step 1**: Select model
-   - **Step 2**: Installation (automatic)
-   - **Step 3**: Upload audio files
-   - **Step 4**: Processing
-   - **Step 5**: Download results
+## Sources
 
-## 📊 Results
+- Inference code: [KimberleyJensen/Mel-Band-Roformer-Vocal-Model](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model)
+- Models: [GaboxR67/MelBandRoformers](https://huggingface.co/GaboxR67/MelBandRoformers)
 
-After processing you'll get:
-- `[filename]_vocals.wav` - extracted vocals
-- `[filename]_instrumental.wav` - music without vocals
+## License
 
-## 🛠️ Technical Details
-
-- Based on Mel-Band Roformer architecture
-- Uses PyTorch for processing
-- Supports CUDA for GPU acceleration
-- Automatic conversion of various audio formats
-
-## 📝 License
-
-This project follows the license of the original [Mel-Band-Roformer-Vocal-Model](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model) repository.
-
-## 🤝 Acknowledgments
-
-- [KimberleyJensen](https://github.com/KimberleyJensen) for the original implementation
-- [GaboxR67](https://huggingface.co/GaboxR67) for additional models
-
----
+Follows the license of the [original repository](https://github.com/KimberleyJensen/Mel-Band-Roformer-Vocal-Model).
